@@ -1,0 +1,27 @@
+@(veiculo: Veiculo)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Veículo</title>
+    <link rel="stylesheet" href="@{'/public/stylesheets/style.css'}">
+</head>
+<body>
+    <h1>Cadastro de Veículo</h1>
+    <form action="@{'/veiculo/salvar'}" method="POST">
+        <input type="hidden" name="id" value="@veiculo?.id">
+        
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="veiculo.modelo" value="@veiculo?.modelo" required>
+        
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="veiculo.placa" value="@veiculo?.placa" required>
+        
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="veiculo.ano" value="@veiculo?.ano" required>
+        
+        <button type="submit">Salvar</button>
+        <a href="@{'/veiculos'}">Cancelar</a>
+    </form>
+</body>
+</html>

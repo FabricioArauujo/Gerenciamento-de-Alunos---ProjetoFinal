@@ -1,0 +1,45 @@
+@(rota: Rota, veiculos: List[Veiculo], motoristas: List[Motorista])
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Rota</title>
+    <link rel="stylesheet" href="@{'/public/stylesheets/style.css'}">
+</head>
+<body>
+    <h1>Cadastro de Rota</h1>
+    <form action="@{'/rota/salvar'}" method="POST">
+        <input type="hidden" name="id" value="@rota?.id">
+        
+        <label for="origem">Origem:</label>
+        <input type="text" id="origem" name="rota.origem" value="@rota?.origem">
+        
+        <label for="destino">Destino:</label>
+        <input type="text" id="destino" name="rota.destino" value="@rota?.destino">
+        
+        <label for="distancia">Distância:</label>
+        <input type="number" step="0.01" id="distancia" name="rota.distancia" value="@rota?.distancia">
+        
+        <label for="veiculo">Veículo:</label>
+        <select id="veiculo" name="veiculoId">
+            @for(veiculo <- veiculos) {
+                <option value="@veiculo.id" @(rota?.veiculo?.id == veiculo.id ? "selected" : "")>
+                    @veiculo.modelo (@veiculo.placa)
+                </option>
+            }
+        </select>
+        
+        <label for="motorista">Motorista:</label>
+        <select id="motorista" name="motoristaId">
+            @for(motorista <- motoristas) {
+                <option value="@motorista.id" @(rota?.motorista?.id == motorista.id ? "selected" : "")>
+                    @motorista.nome
+                </option>
+            }
+        </select>
+        
+        <button type="submit">Salvar</button>
+        <a href="@{'/rotas'}">Cancelar</a>
+    </form>
+</body>
+</html>

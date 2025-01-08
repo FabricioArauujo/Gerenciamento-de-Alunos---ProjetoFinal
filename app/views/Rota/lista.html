@@ -1,0 +1,41 @@
+@(rotas: List[Rota])
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Rotas</title>
+    <link rel="stylesheet" href="@{'/public/stylesheets/style.css'}">
+</head>
+<body>
+    <h1>Lista de Rotas</h1>
+    <a href="@{'/rota/form'}">Adicionar Rota</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Origem</th>
+                <th>Destino</th>
+                <th>Distância</th>
+                <th>Veículo</th>
+                <th>Motorista</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(rota <- rotas) {
+                <tr>
+                    <td>@rota.origem</td>
+                    <td>@rota.destino</td>
+                    <td>@rota.distancia</td>
+                    <td>@rota.veiculo.modelo (@rota.veiculo.placa)</td>
+                    <td>@rota.motorista.nome</td>
+                    <td>
+                        <a href="@{'/rota/' + rota.id}">Detalhes</a>
+                        <a href="@{'/rota/form/' + rota.id}">Editar</a>
+                        <a href="@{'/rota/excluir/' + rota.id}">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

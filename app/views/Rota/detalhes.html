@@ -1,0 +1,18 @@
+@(rota: Rota)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes da Rota</title>
+    <link rel="stylesheet" href="@{'/public/stylesheets/style.css'}">
+</head>
+<body>
+    <h1>Detalhes da Rota</h1>
+    <p><strong>Origem:</strong> @rota.origem</p>
+    <p><strong>Destino:</strong> @rota.destino</p>
+    <p><strong>Distância:</strong> @rota.distancia km</p>
+    <p><strong>Veículo:</strong> @rota.veiculo.modelo (@rota.veiculo.placa)</p>
+    <p><strong>Motorista:</strong> @rota.motorista.nome</p>
+    <a href="@{'/rotas'}">Voltar</a>
+</body>
+</html>

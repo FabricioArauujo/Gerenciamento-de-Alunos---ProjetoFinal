@@ -1,0 +1,35 @@
+@(motoristas: List[Motorista])
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Motoristas</title>
+    <link rel="stylesheet" href="@{'/public/stylesheets/style.css'}">
+</head>
+<body>
+    <h1>Lista de Motoristas</h1>
+    <a href="@{'/motorista/form'}">Adicionar Motorista</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CNH</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(motorista <- motoristas) {
+                <tr>
+                    <td>@motorista.nome</td>
+                    <td>@motorista.cnh</td>
+                    <td>
+                        <a href="@{'/motorista/' + motorista.id}">Detalhes</a>
+                        <a href="@{'/motorista/form/' + motorista.id}">Editar</a>
+                        <a href="@{'/motorista/excluir/' + motorista.id}">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

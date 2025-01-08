@@ -1,0 +1,16 @@
+@(veiculo: Veiculo)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Veículo</title>
+    <link rel="stylesheet" href="@{'/public/stylesheets/style.css'}">
+</head>
+<body>
+    <h1>Detalhes do Veículo</h1>
+    <p><strong>Modelo:</strong> @veiculo.modelo</p>
+    <p><strong>Placa:</strong> @veiculo.placa</p>
+    <p><strong>Ano:</strong> @veiculo.ano</p>
+    <a href="@{'/veiculos'}">Voltar</a>
+</body>
+</html>
