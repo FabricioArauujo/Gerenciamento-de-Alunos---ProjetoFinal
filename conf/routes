@@ -11,22 +11,5 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-# Motorista routes
-GET     /motoristas                             MotoristaController.listar
-GET     /motorista/form                         MotoristaController.formulario
-POST    /motorista/salvar                       MotoristaController.salvar
-GET     /motorista/detalhes/:id                 MotoristaController.detalhes(id: Long)
-
-# Veículo routes
-GET     /veiculos                               VeiculoController.listar
-GET     /veiculo/form                           VeiculoController.formulario
-POST    /veiculo/salvar                         VeiculoController.salvar
-GET     /veiculo/detalhes/:id                   VeiculoController.detalhes(id: Long)
-
-# Rota routes
-GET     /rotas                                  RotaController.listar
-GET     /rota/detalhes/:id                      RotaController.detalhes(id: Long)
-POST    /rota/salvar                            RotaController.salvar
-
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
