@@ -1,11 +1,12 @@
 package controllers;
 
 import models.Motorista;
+import play.mvc.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MotoristaController {
+public class MotoristaController extends Controller {
 
     private static List<Motorista> motoristas = new ArrayList<>();
 
@@ -18,6 +19,7 @@ public class MotoristaController {
 
     public static void form() {
         System.out.println("Exibindo formulário para adicionar motorista.");
+        render();
     }
 
     public static void detalhes(Long id) {
