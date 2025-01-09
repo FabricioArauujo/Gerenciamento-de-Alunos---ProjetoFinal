@@ -1,15 +1,24 @@
 package models;
 
-import javax.persistence.Entity;
-import play.db.jpa.Model;
+public class Motorista {
+    private Long id;
+    private String nome;
 
-@Entity
-public class Motorista extends Model {
-    public String nome;
-    public String cnh;
-
-    public Motorista(String nome, String cnh) {
+    public Motorista(Long id, String nome) {
+        this.id = id;
         this.nome = nome;
-        this.cnh = cnh;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Motorista [id=" + id + ", nome=" + nome + "]";
     }
 }

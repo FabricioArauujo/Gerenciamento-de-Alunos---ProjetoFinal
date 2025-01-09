@@ -1,34 +1,35 @@
 package controllers;
 
 import models.Veiculo;
-import play.mvc.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class VeiculoController extends Controller {
-    public static void lista() {
-        List<Veiculo> veiculos = Veiculo.findAll();
-        render(veiculos);
+public class VeiculoController {
+
+    private static List<Veiculo> veiculos = new ArrayList<>();
+
+    public static void listar() {
+        System.out.println("Listando veículos:");
+        for (Veiculo veiculo : veiculos) {
+            System.out.println(veiculo);
+        }
+    }
+
+    public static void form() {
+        System.out.println("Exibindo formulário para adicionar veículo.");
     }
 
     public static void detalhes(Long id) {
-        Veiculo veiculo = Veiculo.findById(id);
-        render(veiculo);
-    }
-
-    public static void form(Long id) {
-        Veiculo veiculo = id == null ? null : Veiculo.findById(id);
-        render(veiculo);
-    }
-
-    public static void salvar(Veiculo veiculo) {
-        veiculo.save();
-        lista();
-    }
-
-    public static void excluir(Long id) {
-        Veiculo veiculo = Veiculo.findById(id);
-        veiculo.delete();
-        lista();
+        Veiculo veiculo = veiculos.stream()
+                                  .filter(v -> v.getId().equals(id))
+                                  .findFirst()
+                                  .orElse(null);
+        if (veiculo == null) {
+            System.out.println("Veículo não encontrado.");
+        } else {
+            System.out.println("Detalhes do veículo:");
+            System.out.println(veiculo);
+        }
     }
 }

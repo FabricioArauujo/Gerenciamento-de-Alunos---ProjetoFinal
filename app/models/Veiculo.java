@@ -1,17 +1,24 @@
 package models;
 
-import javax.persistence.Entity;
-import play.db.jpa.Model;
+public class Veiculo {
+    private Long id;
+    private String modelo;
 
-@Entity
-public class Veiculo extends Model {
-    public String placa;
-    public String modelo;
-    public int capacidade;
-
-    public Veiculo(String placa, String modelo, int capacidade) {
-        this.placa = placa;
+    public Veiculo(Long id, String modelo) {
+        this.id = id;
         this.modelo = modelo;
-        this.capacidade = capacidade;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    @Override
+    public String toString() {
+        return "Veículo [id=" + id + ", modelo=" + modelo + "]";
     }
 }

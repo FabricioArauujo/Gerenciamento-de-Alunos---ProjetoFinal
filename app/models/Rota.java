@@ -1,26 +1,24 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import play.db.jpa.Model;
+public class Rota {
+    private Long id;
+    private String descricao;
 
-@Entity
-public class Rota extends Model {
-    public String origem;
-    public String destino;
-    public double distancia;
+    public Rota(Long id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
+    }
 
-    @ManyToOne
-    public Veiculo veiculo;
+    public Long getId() {
+        return id;
+    }
 
-    @ManyToOne
-    public Motorista motorista;
+    public String getDescricao() {
+        return descricao;
+    }
 
-    public Rota(String origem, String destino, double distancia, Veiculo veiculo, Motorista motorista) {
-        this.origem = origem;
-        this.destino = destino;
-        this.distancia = distancia;
-        this.veiculo = veiculo;
-        this.motorista = motorista;
+    @Override
+    public String toString() {
+        return "Rota [id=" + id + ", descricao=" + descricao + "]";
     }
 }
